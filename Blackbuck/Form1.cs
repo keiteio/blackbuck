@@ -24,6 +24,7 @@ namespace Blackbuck
         bool stay = false;
         bool fixZoom = false;
         bool fixOpacity = false;
+        bool transparent = false;
 
         public Form1()
         {
@@ -93,6 +94,19 @@ namespace Blackbuck
             oldMouseY = e.Y;
 
             this.Invalidate();
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams createParams = base.CreateParams;
+                if (this.transparent)
+                {
+                    createParams.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
+                }
+                return createParams;
+            }
         }
 
         bool IsModifierKeyPressed(Keys key)
@@ -319,6 +333,11 @@ namespace Blackbuck
         private void Load5_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadPosition(5);
+        }
+
+        private void Transparent_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.transparent = (false == this.transparent);
         }
 
     }

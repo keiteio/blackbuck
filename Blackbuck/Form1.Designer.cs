@@ -32,6 +32,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.FixPosition_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FixZoom_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FixOpscity_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.SavePosition_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Save1_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,7 @@
             this.Load5_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.Close_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FixOpscity_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Transparent_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,13 +58,14 @@
             this.FixPosition_ToolStripMenuItem,
             this.FixZoom_ToolStripMenuItem,
             this.FixOpscity_ToolStripMenuItem,
+            this.Transparent_ToolStripMenuItem,
             this.toolStripSeparator2,
             this.SavePosition_ToolStripMenuItem,
             this.LoadPosition_ToolStripMenuItem,
             this.toolStripSeparator1,
             this.Close_ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(179, 170);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(179, 192);
             // 
             // FixPosition_ToolStripMenuItem
             // 
@@ -80,6 +82,14 @@
             this.FixZoom_ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.FixZoom_ToolStripMenuItem.Text = "サイズを固定(&Z)";
             this.FixZoom_ToolStripMenuItem.Click += new System.EventHandler(this.FixZoom_ToolStripMenuItem_Click);
+            // 
+            // FixOpscity_ToolStripMenuItem
+            // 
+            this.FixOpscity_ToolStripMenuItem.CheckOnClick = true;
+            this.FixOpscity_ToolStripMenuItem.Name = "FixOpscity_ToolStripMenuItem";
+            this.FixOpscity_ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.FixOpscity_ToolStripMenuItem.Text = "不透明度を固定(&X)";
+            this.FixOpscity_ToolStripMenuItem.Click += new System.EventHandler(this.FixOpscity_ToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -101,35 +111,35 @@
             // Save1_ToolStripMenuItem
             // 
             this.Save1_ToolStripMenuItem.Name = "Save1_ToolStripMenuItem";
-            this.Save1_ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.Save1_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.Save1_ToolStripMenuItem.Text = "記録１(&1)";
             this.Save1_ToolStripMenuItem.Click += new System.EventHandler(this.Save1_ToolStripMenuItem_Click);
             // 
             // Save2_ToolStripMenuItem
             // 
             this.Save2_ToolStripMenuItem.Name = "Save2_ToolStripMenuItem";
-            this.Save2_ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.Save2_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.Save2_ToolStripMenuItem.Text = "記録２(&2)";
             this.Save2_ToolStripMenuItem.Click += new System.EventHandler(this.Save2_ToolStripMenuItem_Click);
             // 
             // Save3_ToolStripMenuItem
             // 
             this.Save3_ToolStripMenuItem.Name = "Save3_ToolStripMenuItem";
-            this.Save3_ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.Save3_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.Save3_ToolStripMenuItem.Text = "記録３(&3)";
             this.Save3_ToolStripMenuItem.Click += new System.EventHandler(this.Save3_ToolStripMenuItem_Click);
             // 
             // Save4_ToolStripMenuItem
             // 
             this.Save4_ToolStripMenuItem.Name = "Save4_ToolStripMenuItem";
-            this.Save4_ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.Save4_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.Save4_ToolStripMenuItem.Text = "記録４(&4)";
             this.Save4_ToolStripMenuItem.Click += new System.EventHandler(this.Save4_ToolStripMenuItem_Click);
             // 
             // Save5_ToolStripMenuItem
             // 
             this.Save5_ToolStripMenuItem.Name = "Save5_ToolStripMenuItem";
-            this.Save5_ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.Save5_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.Save5_ToolStripMenuItem.Text = "記録５(&5)";
             this.Save5_ToolStripMenuItem.Click += new System.EventHandler(this.Save5_ToolStripMenuItem_Click);
             // 
@@ -192,13 +202,13 @@
             this.Close_ToolStripMenuItem.Text = "終了(&X)";
             this.Close_ToolStripMenuItem.Click += new System.EventHandler(this.Close_ToolStripMenuItem_Click);
             // 
-            // FixOpscity_ToolStripMenuItem
+            // Transparent_ToolStripMenuItem
             // 
-            this.FixOpscity_ToolStripMenuItem.CheckOnClick = true;
-            this.FixOpscity_ToolStripMenuItem.Name = "FixOpscity_ToolStripMenuItem";
-            this.FixOpscity_ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.FixOpscity_ToolStripMenuItem.Text = "不透明度を固定(&X)";
-            this.FixOpscity_ToolStripMenuItem.Click += new System.EventHandler(this.FixOpscity_ToolStripMenuItem_Click);
+            this.Transparent_ToolStripMenuItem.CheckOnClick = true;
+            this.Transparent_ToolStripMenuItem.Name = "Transparent_ToolStripMenuItem";
+            this.Transparent_ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.Transparent_ToolStripMenuItem.Text = "クリックを透過";
+            this.Transparent_ToolStripMenuItem.Click += new System.EventHandler(this.Transparent_ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -244,6 +254,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem FixZoom_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FixOpscity_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Transparent_ToolStripMenuItem;
     }
 }
 
