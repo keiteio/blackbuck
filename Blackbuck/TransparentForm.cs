@@ -21,20 +21,27 @@ namespace Blackbuck
 
         private float zoom = 1.0f;
 
-        bool stay = false;
-        bool fixZoom = false;
-        bool fixOpacity = false;
-        bool transparent = false;
+        public bool Stay { get; set; }
+        public bool FixZoom { get; set; }
+        public bool FixOpacity { get; set; }
 
-        public TransparentForm()
+        private bool transparent;
+
+        public TransparentForm(bool transparent)
         {
             InitializeComponent();
+
+            this.components = new System.ComponentModel.Container();
+            this.ContextMenuStrip = new MainContextMenu(this.components);
+
+            this.transparent = transparent;
 
             this.Zoom = 1.0f;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
         }
 
         void Form1_Click(object sender, EventArgs e)
@@ -74,17 +81,17 @@ namespace Blackbuck
 
             if (e.Button == MouseButtons.Left)
             {
-                if (!this.stay && !IsModifierKeyPressed(Keys.Shift) && !IsModifierKeyPressed(Keys.Control))
+                if (!this.Stay && !IsModifierKeyPressed(Keys.Shift) && !IsModifierKeyPressed(Keys.Control))
                 {
                     this.Left += e.X - mousePoint.X;
                     this.Top += e.Y - mousePoint.Y;
                 }
-                else if (!this.fixZoom && IsModifierKeyPressed(Keys.Control))
+                else if (!this.FixZoom && IsModifierKeyPressed(Keys.Control))
                 {
                     this.Zoom = Math.Max(0.1f, this.Zoom + (value / 5000.0f));
 
                 }
-                else if (!this.fixOpacity && IsModifierKeyPressed(Keys.Shift))
+                else if (!this.FixOpacity && IsModifierKeyPressed(Keys.Shift))
                 {
                     this.Opacity = Math.Max(0.1, this.Opacity + (value / 1000.0));
                 }
@@ -168,12 +175,7 @@ namespace Blackbuck
             return false;
         }
 
-        private void Close_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private float Zoom
+        public float Zoom
         {
             get
             {
@@ -191,153 +193,6 @@ namespace Blackbuck
                 }
                 zoom = value;
             }
-        }
-
-        private void FixPosition_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.stay = (false == this.stay);
-        }
-
-        private void FixZoom_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.fixZoom = (false == this.fixZoom);
-        }
-
-        private void FixOpscity_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.fixOpacity = (false == this.fixOpacity);
-        }
-
-        private void SavePosition(int num)
-        {
-            switch (num)
-            {
-                case 1:
-                    {
-                        Properties.Settings.Default.Save1Position = this.Location;
-                        Properties.Settings.Default.Save1Zoom = this.Zoom;
-                        break;
-                    }
-                case 2:
-                    {
-                        Properties.Settings.Default.Save2Position = this.Location;
-                        Properties.Settings.Default.Save2Zoom = this.Zoom;
-                        break;
-                    }
-                case 3:
-                    {
-                        Properties.Settings.Default.Save3Position = this.Location;
-                        Properties.Settings.Default.Save3Zoom = this.Zoom;
-                        break;
-                    }
-                case 4:
-                    {
-                        Properties.Settings.Default.Save4Position = this.Location;
-                        Properties.Settings.Default.Save4Zoom = this.Zoom;
-                        break;
-                    }
-                case 5:
-                    {
-                        Properties.Settings.Default.Save5Position = this.Location;
-                        Properties.Settings.Default.Save5Zoom = this.Zoom;
-                        break;
-                    }
-
-            }
-            Properties.Settings.Default.Save();
-        }
-
-        private void Save1_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SavePosition(1);
-        }
-
-        private void Save2_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SavePosition(2);
-        }
-
-        private void Save3_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SavePosition(3);
-        }
-
-        private void Save4_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SavePosition(4);
-        }
-
-        private void Save5_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SavePosition(5);
-        }
-
-        private void LoadPosition(int num)
-        {
-            Properties.Settings.Default.Reload();
-            switch (num)
-            {
-                case 1:
-                    {
-                        this.Location = Properties.Settings.Default.Save1Position;
-                        this.Zoom = Properties.Settings.Default.Save1Zoom;
-                        break;
-                    }
-                case 2:
-                    {
-                        this.Location = Properties.Settings.Default.Save2Position;
-                        this.Zoom = Properties.Settings.Default.Save2Zoom;
-                        break;
-                    }
-                case 3:
-                    {
-                        this.Location = Properties.Settings.Default.Save3Position;
-                        this.Zoom = Properties.Settings.Default.Save3Zoom;
-                        break;
-                    }
-                case 4:
-                    {
-                        this.Location = Properties.Settings.Default.Save4Position;
-                        this.Zoom = Properties.Settings.Default.Save4Zoom;
-                        break;
-                    }
-                case 5:
-                    {
-                        this.Location = Properties.Settings.Default.Save5Position;
-                        this.Zoom = Properties.Settings.Default.Save5Zoom;
-                        break;
-                    }
-            }
-        }
-
-        private void Load1_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadPosition(1);
-        }
-
-        private void Load2_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadPosition(2);
-        }
-
-        private void Load3_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadPosition(3);
-        }
-
-        private void Load4_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadPosition(4);
-        }
-
-        private void Load5_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadPosition(5);
-        }
-
-        private void Transparent_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.transparent = (false == this.transparent);
         }
 
     }
