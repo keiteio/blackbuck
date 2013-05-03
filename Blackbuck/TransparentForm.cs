@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Blackbuck
 {
-    public partial class Form1 : Form
+    public partial class TransparentForm : Form
     {
         string[] FileExtentions = new string[] { ".jpg", ".jpeg", ".png" };
 
@@ -26,7 +26,7 @@ namespace Blackbuck
         bool fixOpacity = false;
         bool transparent = false;
 
-        public Form1()
+        public TransparentForm()
         {
             InitializeComponent();
 

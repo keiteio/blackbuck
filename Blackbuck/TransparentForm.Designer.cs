@@ -1,6 +1,6 @@
 ﻿namespace Blackbuck
 {
-    partial class Form1
+    partial class TransparentForm
     {
         /// <summary>
         /// 必要なデザイナー変数です。
