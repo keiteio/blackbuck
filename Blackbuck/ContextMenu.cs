@@ -9,35 +9,30 @@ namespace Blackbuck
 {
     public partial class MainContextMenu : ContextMenuStrip
     {
-        ApplicationContext context;
-        private static MainContextMenu instances;
-
-        ToolStripItem NumericUpDown_ToolStripMenuItem;
-        ToolStripMenuItem FixPosition_ToolStripMenuItem;
-        ToolStripMenuItem FixZoom_ToolStripMenuItem;
-        ToolStripMenuItem FixOpscity_ToolStripMenuItem;
-        ToolStripMenuItem Transparent_ToolStripMenuItem;
-        ToolStripSeparator toolStripSeparator2;
-        ToolStripMenuItem SavePosition_ToolStripMenuItem;
-        ToolStripMenuItem LoadPosition_ToolStripMenuItem;
-        ToolStripSeparator toolStripSeparator1;
-        ToolStripMenuItem Close_ToolStripMenuItem;
-        ToolStripMenuItem Save1_ToolStripMenuItem;
-        ToolStripMenuItem Save2_ToolStripMenuItem;
-        ToolStripMenuItem Save3_ToolStripMenuItem;
-        ToolStripMenuItem Save4_ToolStripMenuItem;
-        ToolStripMenuItem Save5_ToolStripMenuItem;
-        ToolStripMenuItem Load1_ToolStripMenuItem;
-        ToolStripMenuItem Load2_ToolStripMenuItem;
-        ToolStripMenuItem Load3_ToolStripMenuItem;
-        ToolStripMenuItem Load4_ToolStripMenuItem;
-        ToolStripMenuItem Load5_ToolStripMenuItem;
+        public ToolStripItem NumericUpDown_ToolStripMenuItem;
+        public ToolStripMenuItem FixPosition_ToolStripMenuItem;
+        public ToolStripMenuItem FixZoom_ToolStripMenuItem;
+        public ToolStripMenuItem FixOpscity_ToolStripMenuItem;
+        public ToolStripMenuItem Transparent_ToolStripMenuItem;
+        public ToolStripSeparator toolStripSeparator2;
+        public ToolStripMenuItem SavePosition_ToolStripMenuItem;
+        public ToolStripMenuItem LoadPosition_ToolStripMenuItem;
+        public ToolStripSeparator toolStripSeparator1;
+        public ToolStripMenuItem Close_ToolStripMenuItem;
+        public ToolStripMenuItem Save1_ToolStripMenuItem;
+        public ToolStripMenuItem Save2_ToolStripMenuItem;
+        public ToolStripMenuItem Save3_ToolStripMenuItem;
+        public ToolStripMenuItem Save4_ToolStripMenuItem;
+        public ToolStripMenuItem Save5_ToolStripMenuItem;
+        public ToolStripMenuItem Load1_ToolStripMenuItem;
+        public ToolStripMenuItem Load2_ToolStripMenuItem;
+        public ToolStripMenuItem Load3_ToolStripMenuItem;
+        public ToolStripMenuItem Load4_ToolStripMenuItem;
+        public ToolStripMenuItem Load5_ToolStripMenuItem;
 
         public MainContextMenu(IContainer container)
             : base(container)
         {
-            this.context = ApplicationContext.Instance;
-
             this.FixPosition_ToolStripMenuItem = new ToolStripMenuItem();
             this.FixZoom_ToolStripMenuItem = new ToolStripMenuItem();
             this.FixOpscity_ToolStripMenuItem = new ToolStripMenuItem();
@@ -61,7 +56,6 @@ namespace Blackbuck
             this.FixPosition_ToolStripMenuItem = new ToolStripMenuItem();
 
             this.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.NumericUpDown_ToolStripMenuItem,
                 this.FixPosition_ToolStripMenuItem,
                 this.FixZoom_ToolStripMenuItem,
                 this.FixOpscity_ToolStripMenuItem,
@@ -217,7 +211,7 @@ namespace Blackbuck
             this.Transparent_ToolStripMenuItem.Name = "Transparent_ToolStripMenuItem";
             this.Transparent_ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.Transparent_ToolStripMenuItem.Text = "クリックを透過";
-            // this.Transparent_ToolStripMenuItem.Click += new System.EventHandler(this.Transparent_ToolStripMenuItem_Click);
+            this.Transparent_ToolStripMenuItem.Click += new System.EventHandler(this.Transparent_ToolStripMenuItem_Click);
         }
     }
 }

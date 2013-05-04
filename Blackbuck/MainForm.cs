@@ -20,8 +20,7 @@ namespace Blackbuck
 
             InitializeComponent();
 
-            this.components = new System.ComponentModel.Container();
-            NotifyIcon.ContextMenuStrip = new MainContextMenu(this.components);
+            NotifyIcon.ContextMenuStrip = this.context.MainContextMenu;
             NotifyIcon.Text = this.Text;
 
             this.context.MainForm = this;
@@ -45,20 +44,28 @@ namespace Blackbuck
             NotifyIcon.Dispose();
         }
 
-        void RefreshForm(bool transparent)
+        public void RefreshForm(bool transparent)
         {
             TransparentForm old_form = this.form;
             this.form = new TransparentForm(transparent);
+            this.context.Form = this.form;
+            this.form.Show();
 
             if (old_form != null)
             {
+                float zoom = old_form.Zoom;
+                this.form.BackgroundImage = old_form.BackgroundImage;
+                this.form.BackgroundImageLayout = old_form.BackgroundImageLayout;
                 this.form.Location = old_form.Location;
                 this.form.ClientSize = old_form.ClientSize;
-                this.form.Zoom = old_form.Zoom;
+                this.form.Opacity = old_form.Opacity < 1.0f ? old_form.Opacity : 0.9f;
+                this.form.Zoom = zoom;
+                this.form.FixOpacity = old_form.FixOpacity;
+                this.form.FixZoom = old_form.FixZoom;
+                old_form.Close();
+                old_form.Dispose();
             }
 
-            this.context.Form = this.form;
-            this.form.Show();
         }
 
     }

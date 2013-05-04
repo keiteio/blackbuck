@@ -21,20 +21,21 @@ namespace Blackbuck
 
         private float zoom = 1.0f;
 
+        private ApplicationContext context;
+
         public bool Stay { get; set; }
         public bool FixZoom { get; set; }
         public bool FixOpacity { get; set; }
-
-        private bool transparent;
+        public bool TransparentClick { get; private set; }
 
         public TransparentForm(bool transparent)
         {
             InitializeComponent();
 
-            this.components = new System.ComponentModel.Container();
-            this.ContextMenuStrip = new MainContextMenu(this.components);
+            context = ApplicationContext.Instance;
+            this.ContextMenuStrip = this.context.MainContextMenu; ;
 
-            this.transparent = transparent;
+            this.TransparentClick = transparent;
 
             this.Zoom = 1.0f;
         }
@@ -108,7 +109,7 @@ namespace Blackbuck
             get
             {
                 CreateParams createParams = base.CreateParams;
-                if (this.transparent)
+                if (this.TransparentClick)
                 {
                     createParams.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
                 }

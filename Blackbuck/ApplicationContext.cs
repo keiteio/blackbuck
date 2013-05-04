@@ -12,6 +12,13 @@ namespace Blackbuck
 
         public TransparentForm Form { get; set; }
         public MainForm MainForm { get; set; }
+        public MainContextMenu MainContextMenu { get; private set; }
+
+        private ApplicationContext()
+        {
+            this.MainContextMenu = new MainContextMenu(new System.ComponentModel.Container());
+        }
+
 
         public static ApplicationContext Instance
         {
